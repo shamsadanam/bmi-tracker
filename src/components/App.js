@@ -73,7 +73,7 @@ const App = () => {
         spacing={2}
         m="0 auto"
       >
-        <Grid item xs={12} sx={{ backgroundColor: purple[100] }}>
+        <Grid item xs={12}>
           <Form handleCalculate={handleCalculate} />
         </Grid>
         {graphData.dates.length !== 0 && graphData.bmis.length !== 0 && (
