@@ -76,6 +76,11 @@ const App = () => {
         <Grid item xs={12}>
           <Form handleCalculate={handleCalculate} />
         </Grid>
+        {state.prevState.length !== 0 && (
+          <Grid item xs={12} textAlign="center">
+            <UndoBtn handleUndo={handleUndo} />
+          </Grid>
+        )}
         {graphData.dates.length !== 0 && graphData.bmis.length !== 0 && (
           <Grid item xs={8} alignItems="center">
             <ShowLineChart dates={graphData.dates} bmis={graphData.bmis} />
@@ -84,11 +89,6 @@ const App = () => {
         {state.currentState.length !== 0 && (
           <Grid item xs={12}>
             <Info items={state.currentState} handleDelete={handleDelete} />
-          </Grid>
-        )}
-        {state.prevState.length !== 0 && (
-          <Grid item xs={12} textAlign="center">
-            <UndoBtn handleUndo={handleUndo} />
           </Grid>
         )}
       </Grid>
