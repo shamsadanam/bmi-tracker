@@ -33,7 +33,7 @@ const options = {
     },
     title: {
       display: true,
-      text: "Chart.js Line Chart",
+      text: "BMI Chart",
     },
   },
 };
@@ -57,22 +57,23 @@ const graphColors = {
 const ShowLineChart = ({ dates, bmis }) => {
   const labels = dates;
   const rangeDatasetsStyles = {
-    fill: false,
-    pointBackgroundColor: "transparent",
-    pointBorderColor: "transparent",
+    fill: true,
+    // pointBackgroundColor: "transparent",
+    // pointBorderColor: "transparent",
     showLine: false,
   };
   const rangeDatasets = [
     {
       ...rangeDatasetsStyles,
       label: "Underweight",
-      // data: generateData(0, 18.5, dates.length),
+      fill: "origin",
+      backgroundColor: graphColors.underweight,
+      data: generateData(18.4, 18.4, dates.length),
     },
     {
+      ...rangeDatasetsStyles,
       label: "Healthy Weight",
-      fill: false,
-      // backgroundColor: graphColors.underweight,
-      showLines: true,
+      backgroundColor: graphColors.healthy,
       data: generateData(18.6, 24.9, dates.length),
     },
     {
@@ -84,22 +85,24 @@ const ShowLineChart = ({ dates, bmis }) => {
     {
       ...rangeDatasetsStyles,
       label: "Obesity",
-      target: "origin",
+      // fill: {
+      //   value: 70,
+      // },
       backgroundColor: graphColors.obesity,
-      data: generateData(30, 60, dates.length),
+      data: generateData(39.9, 70, dates.length),
     },
   ];
 
   const data = {
     labels,
     datasets: [
-      {
-        label: "Dataset 1",
-        fill: false,
-        data: bmis,
-        borderColor: blue[500],
-        backgroundColor: yellow[400],
-      },
+      // {
+      //   label: "Dataset 1",
+      //   fill: false,
+      //   data: bmis,
+      //   borderColor: blue[500],
+      //   backgroundColor: yellow[400],
+      // },
       ...rangeDatasets,
     ],
   };

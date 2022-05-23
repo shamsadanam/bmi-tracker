@@ -77,12 +77,12 @@ const App = () => {
           <Form handleCalculate={handleCalculate} />
         </Grid>
         {graphData.dates.length !== 0 && graphData.bmis.length !== 0 && (
-          <Grid item xs={6} alignItems="center">
+          <Grid item xs={8} alignItems="center">
             <ShowLineChart dates={graphData.dates} bmis={graphData.bmis} />
           </Grid>
         )}
         {state.currentState.length !== 0 && (
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Info items={state.currentState} handleDelete={handleDelete} />
           </Grid>
         )}

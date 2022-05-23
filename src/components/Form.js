@@ -21,6 +21,11 @@ const Form = ({ handleCalculate }) => {
     height: "",
   });
 
+  const onClickHandler = () => {
+    handleCalculate(state);
+    setState({ weight: "", height: "" });
+  };
+
   return (
     <Grid container spacing={2} padding={2}>
       <Grid item xs={5}>
@@ -58,9 +63,7 @@ const Form = ({ handleCalculate }) => {
         <CalculateBtn
           disabled={state.weight && state.height ? false : true}
           variant="contained"
-          onClick={() =>
-            handleCalculate(state) && setState({ weight: "", height: "" })
-          }
+          onClick={onClickHandler}
         >
           Calculate
         </CalculateBtn>
