@@ -1,6 +1,5 @@
 import React from "react";
-import { alpha } from "@mui/material/styles";
-import { red, pink, green, blue, brown, yellow } from "@mui/material/colors";
+import { pink, green, blue, yellow } from "@mui/material/colors";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -28,9 +27,9 @@ ChartJS.register(
 const GRAPH_MIN_LIMIT = 10;
 const ENLARGE_FOR_DESIGN = 10;
 const UNDERWEIGHT_UL = 18.4;
-const HEALTHY_LL = 18.5;
+// const HEALTHY_LL = 18.5;
 const HEALTHY_UL = 24.9;
-const OVERWEIGHT_LL = 25;
+// const OVERWEIGHT_LL = 25;
 const OVERWEIGHT_UL = 29.9;
 const OBESITY_LL = 30;
 
@@ -39,6 +38,7 @@ const generateData = (from, to, count) => {
   for (let i = from, j = 0; j <= count; i += Math.ceil(to / count), j++) {
     i <= to ? data.push(i) : data.push(to);
   }
+  console.log(data);
   return data;
 };
 
@@ -79,14 +79,12 @@ const ShowLineChart = ({ dates, bmis }) => {
     },
   };
 
-  const rangeDatasetsStyles = [
-    {
-      fill: true,
-      pointBackgroundColor: "transparent",
-      pointBorderColor: "transparent",
-      showLine: false,
-    },
-  ];
+  const rangeDatasetsStyles = {
+    fill: true,
+    pointBackgroundColor: "transparent",
+    pointBorderColor: "transparent",
+    showLine: false,
+  };
 
   const rangeDatasets = [
     {
@@ -105,7 +103,7 @@ const ShowLineChart = ({ dates, bmis }) => {
       ...rangeDatasetsStyles,
       label: "Over Weight",
       backgroundColor: graphColors.overweight,
-      data: generateData(OVERWEIGHT_UL, OVERWEIGHT_UL, dates.length),
+      data: generateData(OVERWEIGHT_UL - 1, OVERWEIGHT_UL, dates.length),
     },
     {
       ...rangeDatasetsStyles,

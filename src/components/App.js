@@ -82,7 +82,7 @@ const App = () => {
           </Grid>
         )}
         {graphData.dates.length !== 0 && graphData.bmis.length !== 0 && (
-          <Grid item xs={8} alignItems="center">
+          <Grid item xs={8} alignItems="center" mb={2}>
             <ShowLineChart dates={graphData.dates} bmis={graphData.bmis} />
           </Grid>
         )}
